@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    margin: 1rem 3rem;
+}
+
+.container-form {
+    margin: 1.5rem 1rem;
+}
+
+/* Structure */
+table {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+.mr {
+    margin-right: 1rem !important;
+}
+
+mat-toolbar-row {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-card {
+    margin: auto;
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://scontent-qro1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160a/p160x160/74577210_527448738096943_5711150410153066496_n.jpg?_nc_cat=105&_nc_ohc=iAfUrWju5-kAQnfvDMqDd0dCoOZ7sjmypAG0waQkN6EC7q23dPZp4g8-Q&_nc_ht=scontent-qro1-1.xx&oh=140afb55536a21ff1b2032f2153b1057&oe=5E79A36A');
+    background-size: cover;
+}

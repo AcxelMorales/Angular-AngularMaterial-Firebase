@@ -1,0 +1,61 @@
+<div class="container-form">
+    <form ngNativeValidate #f="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input
+                matInput
+                placeholder="Write the name here"
+                name="name"
+                [(ngModel)]="this._firebaseService.selected.name"
+                required
+                autocomplete="off">
+            <mat-icon matSuffix>perm_identity</mat-icon>
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input
+                matInput
+                placeholder="Write the name of the city here"
+                name="city"
+                [(ngModel)]="this._firebaseService.selected.city"
+                required
+                autocomplete="off">
+            <mat-icon matSuffix>room</mat-icon>
+            <mat-error *ngIf="name.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Order</mat-label>
+            <input
+                matInput
+                type="number"
+                placeholder="Write the order here"
+                name="order"
+                [(ngModel)]="this._firebaseService.selected.order"
+                required
+                autocomplete="off">
+            <mat-icon matSuffix>eject</mat-icon>
+            <mat-error *ngIf="name.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+
+        <button
+            [disabled]="f.invalid"
+            style="width: 100%;"
+            mat-flat-button color="primary"
+            (click)="onSaveForm(f)"
+        >
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+
+        <button
+            mat-flat-button color="warn"
+            style="width: 100%; margin-top: .5rem;"
+            (click)="onClose()"
+        >
+            Close
+        </button>
+    </form>
+</div>

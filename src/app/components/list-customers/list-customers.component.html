@@ -1,0 +1,50 @@
+<div *ngIf="data.length > 0">
+    <mat-form-field>
+        <input
+            matInput
+            (keyup)="applyFilter($event.target.value)"
+            placeholder="Filter"
+        >
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="order">
+            <th mat-header-cell *matHeaderCellDef> Order </th>
+            <td mat-cell *matCellDef="let element"> {{element.order | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button
+                    matTooltip="Edit customer"
+                    mat-flat-button color="accent"
+                    class="mr"
+                    (click)="onEdit(element)"
+                >Edit</button>
+                <button
+                    mat-flat-button
+                    color="warn"
+                    (click)="onDelete(element.id)"
+                    matTooltip="Delete customer"
+                >Delete</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<app-no-customers *ngIf="data.length === 0"></app-no-customers>
